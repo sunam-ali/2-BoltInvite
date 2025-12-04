@@ -50,12 +50,14 @@ export default function OrderReport({
       </div>
       <div className="bg-cardbg rounded-lg p-4">
         <div className="reports-container">
-          <table className="min-w-full">
+          <table className="min-w-full  border-separate border-spacing-2">
             <thead>
               <tr className="text-left text-sm">
                 <th className="pb-3 font-medium">ID</th>
-                <th className="pb-3 font-medium">Customer Name</th>
-                <th className="pb-3 font-medium">Items</th>
+                <th className="pb-3 font-medium hidden sm:table-cell">
+                  Customer Name
+                </th>
+                <th className="pb-3 font-medium hidden sm:table-cell">Items</th>
                 <th className="pb-3 font-medium">Amount</th>
                 <th className="pb-3 font-medium">Status</th>
                 <th className="pb-3 font-medium">Action</th>
@@ -72,8 +74,12 @@ export default function OrderReport({
                 displayedOrderList.map((order, index) => (
                   <tr className="border-t border-gray-700" key={order.id}>
                     <td className="py-3">{index + 1}</td>
-                    <td className="py-3">{order.customerName}</td>
-                    <td className="py-3">{order.addedItems.length}</td>
+                    <td className="py-3 hidden sm:table-cell">
+                      {order.customerName}
+                    </td>
+                    <td className="py-3 hidden sm:table-cell">
+                      {order.addedItems.length}
+                    </td>
                     <td className="py-3">{order.totalAmount}</td>
                     <td className="py-3">
                       {order.isPending ? (
@@ -92,13 +98,13 @@ export default function OrderReport({
                       {order.isPending && (
                         <>
                           <button
-                            className="bg-gray-800 hover:bg-primary text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300"
+                            className="bg-gray-800 hover:bg-primary text-xs px-3 py-1 max-[425px]:mt-1.5 rounded-full mr-1 transition-colors duration-300"
                             onClick={() => onEdit(order)}
                           >
                             Edit
                           </button>
                           <button
-                            className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300"
+                            className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 max-[425px]:mt-1.5 rounded-full transition-colors duration-300"
                             onClick={() => onDeliver(order.id)}
                           >
                             DELIVER
