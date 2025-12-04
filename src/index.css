@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --color-primary: #ff602c;
+  --color-background: #1d1d1d;
+  --color-navbg: rgba(89, 86, 86, 0.29);
+  --color-cardbg: rgba(89, 86, 86, 0.4);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-inter);
+    background-color: var(--color-background);
+    color: white;
+    height: 100vh;
+    /* overflow: hidden; */
+  }
+
+  select {
+    appearance: none;
+    accent-color: var(--color-primary);
+    background-color: var(--color-background);
+    min-width: 100px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 4px;
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    @apply bg-primary;
+  }
+
+  .bg-background {
+    background-color: var(--color-background);
+    @apply bg-background;
+  }
+
+  .bg-navbg {
+    @apply bg-navbg;
+  }
+
+  .bg-cardbg {
+    @apply bg-cardbg;
+  }
+
+  .text-primary {
+    @apply text-primary;
+  }
+
+  .font-inter {
+    @apply font-inter;
+  }
+
+  .items-container {
+    @apply max-h-[250px] overflow-y-auto;
+  }
+
+  .reports-container {
+    @apply max-h-[3400px] overflow-y-auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(89, 86, 86, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 96, 44, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 96, 44, 0.8);
+}
